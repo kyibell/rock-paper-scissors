@@ -22,8 +22,7 @@ function getComputerChoice() {
     return choice;
 }
 
-// Player Choice Function (make sure it is case insensitive).
-
+// Player Choice Function
 function getHumanChoice() {
 
     let humanChoice = prompt('Rock, Paper, or Scissors?');
@@ -34,12 +33,45 @@ function getHumanChoice() {
 }
 
 //Play Round Function
+function playRound(humanChoice, computerChoice) {
+        computerChoice = getComputerChoice();
+        humanChoice = getHumanChoice();
 
-function playRound() {
-    let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
+        if (humanChoice == computerChoice) {
+        console.log("Tie! Computer Choice was " + computerChoice + ".");
+        }
 
-
-}
+    switch(humanChoice) {
+        case 'rock':
+            if (computerChoice == 'paper') {
+                console.log("Computer Choice was "  + computerChoice + "! You lose!");
+                computerScore++;
+            }
+            if (computerChoice == 'scissors') {
+                console.log("Computer choice was " + computerChoice + ". You win!");
+                humanScore++;
+            }
+            break;
+        case 'paper':
+            if (computerChoice == 'scissors') {
+                console.log("Computer Choice was " + computerChoice + "! You lose!");
+                computerScore++;
+            }
+            if (computerChoice == 'rock') {
+                console.log("Computer Choice was " + computerChoice + ". You win!");
+                humanScore++;
+            }
+            break;
+        case 'scissors':
+            if (computerChoice == 'rock') {
+                console.log("Computer Choice was " + computerChoice + "! You lose!");
+                computerScore++;
+            }
+            if (computerChoice == 'paper') {
+                console.log("Computer Choice was " + computerChoice + ". You win!");
+                humanScore++;
+            }
+        }
+    }
 
 
