@@ -1,5 +1,3 @@
-
-
 // Computer Choice Function 
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3); // Generates random int from 0-2
@@ -40,47 +38,43 @@ function playGame() {
         playRound(humanChoice, computerChoice);
     }
 
-//Play Round Function
+    //Play Round Function
     function playRound(humanChoice, computerChoice) {
 
         if (humanChoice == computerChoice) { //Tie Case
             console.log("Tie! Computer Choice was " + computerChoice + ".");
         }
 
-    switch(humanChoice) {
-        case 'rock':
-            if (computerChoice == 'paper') {
-                console.log("Computer Choice was "  + computerChoice + "! You lose!");
-                computerScore++;
-            }
-            if (computerChoice == 'scissors') {
-                console.log("Computer choice was " + computerChoice + ". You win!");
-                humanScore++;
-            }
+        switch(humanChoice) {
+            case 'rock':
+                if (computerChoice == 'paper') {
+                    console.log("Computer Choice was "  + computerChoice + "! You lose!");
+                    computerScore++;
+                }
+                if (computerChoice == 'scissors') {
+                    console.log("Computer choice was " + computerChoice + ". You win!");
+                    humanScore++;
+                }
             break;
-        case 'paper':
-            if (computerChoice == 'scissors') {
-                console.log("Computer Choice was " + computerChoice + "! You lose!");
-                computerScore++;
-                
-            }
-            if (computerChoice == 'rock') {
-                console.log("Computer Choice was " + computerChoice + ". You win!");
-                humanScore++;
-                
-            }
+            case 'paper':
+                if (computerChoice == 'scissors') {
+                    console.log("Computer Choice was " + computerChoice + "! You lose!");
+                    computerScore++;
+                }
+                if (computerChoice == 'rock') {
+                    console.log("Computer Choice was " + computerChoice + ". You win!");
+                    humanScore++;
+                }
             break;
-        case 'scissors':
-            if (computerChoice == 'rock') {
-                console.log("Computer Choice was " + computerChoice + "! You lose!");
-                computerScore++;
-                
-            }
-            if (computerChoice == 'paper') {
-                console.log("Computer Choice was " + computerChoice + ". You win!");
-                humanScore++;
-                
-            }
+            case 'scissors':
+                if (computerChoice == 'rock') {
+                    console.log("Computer Choice was " + computerChoice + "! You lose!");
+                    computerScore++;
+                }
+                if (computerChoice == 'paper') {
+                    console.log("Computer Choice was " + computerChoice + ". You win!");
+                    humanScore++;
+                }
         }
         console.log("SCORE: \n" + "Computer: " + computerScore + " You: " + humanScore); // Display the Score after every Round
     }
