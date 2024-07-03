@@ -1,12 +1,9 @@
-let humanScore = 0;
-let computerScore = 0;
+
 
 // Computer Choice Function 
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3); // Generates random int from 0-2
     
-     // console.log(choice);
-
     switch(choice) {
         case 0:
             choice = 'rock';
@@ -32,13 +29,22 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-//Play Round Function
-function playRound(humanChoice, computerChoice) {
-        computerChoice = getComputerChoice();
-        humanChoice = getHumanChoice();
+//Play Game Function
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
-        if (humanChoice == computerChoice) {
-        console.log("Tie! Computer Choice was " + computerChoice + ".");
+    for (let i = 0; i < 5; i++) {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+        playRound(humanChoice, computerChoice);
+    }
+
+//Play Round Function
+    function playRound(humanChoice, computerChoice) {
+
+        if (humanChoice == computerChoice) { //Tie Case
+            console.log("Tie! Computer Choice was " + computerChoice + ".");
         }
 
     switch(humanChoice) {
@@ -56,22 +62,38 @@ function playRound(humanChoice, computerChoice) {
             if (computerChoice == 'scissors') {
                 console.log("Computer Choice was " + computerChoice + "! You lose!");
                 computerScore++;
+                
             }
             if (computerChoice == 'rock') {
                 console.log("Computer Choice was " + computerChoice + ". You win!");
                 humanScore++;
+                
             }
             break;
         case 'scissors':
             if (computerChoice == 'rock') {
                 console.log("Computer Choice was " + computerChoice + "! You lose!");
                 computerScore++;
+                
             }
             if (computerChoice == 'paper') {
                 console.log("Computer Choice was " + computerChoice + ". You win!");
                 humanScore++;
+                
             }
         }
+        console.log("SCORE: \n" + "Computer: " + computerScore + " You: " + humanScore); // Display the Score after every Round
     }
+        if (computerScore > humanScore) { //Display win/loss/tie based off of final score
+            console.log("You Lost!");
+        }
+        else if (computerScore < humanScore) {
+            console.log("You won!");
+        }
+        else {
+            console.log("You Tied!");
+        }
+}
 
+playGame(); //Start Game
 
